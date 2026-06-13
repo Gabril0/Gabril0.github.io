@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{ with .Content }}
+    <section class="wii-intro">{{ . }}</section>
+  {{ end }}
+  <section class="wii-grid" aria-label="Channels">
+    {{ $posts := where site.RegularPages "Section" "posts" }}
+    {{ range $posts }}
+      <a class="wii-channel" href="{{ .RelPermalink }}">
+        <div class="wii-channel-screen">
+          {{ with .Params.icon }}<span class="wii-channel-icon">{{ . }}</span>{{ else }}<span class="wii-channel-icon">★</span>{{ end }}
+          <span class="wii-channel-title">{{ .Title }}</span>
+        </div>
+        <div class="wii-channel-label">{{ .Date.Format "Jan 2, 2006" }}</div>
+      </a>
+    {{ end }}
+    {{ $count := len $posts }}
+    {{ range (seq (sub 8 (cond (gt $count 8) 8 $count))) }}
+      <span class="wii-channel wii-channel--empty" aria-hidden="true"></span>
+    {{ end }}
+  </section>
+{{ end }}

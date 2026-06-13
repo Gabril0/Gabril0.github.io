@@ -1,0 +1,12 @@
+<footer class="wii-footer">
+  <a class="wii-disc" href="{{ `` | relURL }}" title="Home" aria-label="Home">
+    <span class="wii-disc-inner">⌂</span>
+  </a>
+  <div class="wii-footer-bar">
+    <span class="wii-footer-text">© {{ now.Format "2006" }} {{ site.Title }}</span>
+    {{ with site.Params.author }}<span class="wii-footer-dot">•</span><span class="wii-footer-text">{{ . }}</span>{{ end }}
+  </div>
+  <a class="wii-mail" href="{{ `posts/` | relURL }}" title="All posts" aria-label="All posts">
+    <span class="wii-mail-inner">✉</span>
+  </a>
+</footer>

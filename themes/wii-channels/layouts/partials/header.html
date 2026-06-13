@@ -1,0 +1,15 @@
+<header class="wii-header">
+  <div class="wii-clock-pod">
+    <div class="wii-time" id="wii-time">--:--</div>
+    <div class="wii-date" id="wii-date">{{ now.Format "Mon, Jan 2" }}</div>
+  </div>
+  <a class="wii-logo" href="{{ `` | relURL }}">
+    <span class="wii-logo-text">{{ site.Title }}</span>
+    {{ with site.Params.subtitle }}<span class="wii-logo-sub">{{ . }}</span>{{ end }}
+  </a>
+  <nav class="wii-nav">
+    {{ range site.Menus.main }}
+      <a class="wii-nav-btn" href="{{ .URL | relURL }}">{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>

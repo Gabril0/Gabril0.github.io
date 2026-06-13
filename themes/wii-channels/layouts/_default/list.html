@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <div class="wii-panel">
+    <h1 class="wii-panel-title">{{ .Title }}</h1>
+    {{ with .Content }}<div class="wii-panel-intro">{{ . }}</div>{{ end }}
+    <ul class="wii-post-list">
+      {{ range .Pages }}
+        <li class="wii-post-row">
+          <a href="{{ .RelPermalink }}" class="wii-post-link">
+            <span class="wii-post-icon">{{ with .Params.icon }}{{ . }}{{ else }}★{{ end }}</span>
+            <span class="wii-post-name">{{ .Title }}</span>
+            <span class="wii-post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

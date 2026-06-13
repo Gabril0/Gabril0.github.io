@@ -1,0 +1,7 @@
+name = "Wii Channels"
+license = "MIT"
+description = "Neo-skeuomorphic blue Hugo theme inspired by the Nintendo Wii menu and channels."
+min_version = "0.116.0"
+
+[author]
+  name = "Gabril0"

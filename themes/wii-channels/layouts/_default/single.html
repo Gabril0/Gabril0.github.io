@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <article class="wii-panel wii-article">
+    <header class="wii-article-head">
+      <span class="wii-article-icon">{{ with .Params.icon }}{{ . }}{{ else }}★{{ end }}</span>
+      <h1 class="wii-article-title">{{ .Title }}</h1>
+      <div class="wii-article-meta">
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+        {{ if .ReadingTime }}<span class="wii-footer-dot">•</span><span>{{ .ReadingTime }} min read</span>{{ end }}
+      </div>
+      {{ with .Params.tags }}
+        <div class="wii-tags">
+          {{ range . }}<span class="wii-tag">{{ . }}</span>{{ end }}
+        </div>
+      {{ end }}
+    </header>
+    <div class="wii-article-body">
+      {{ .Content }}
+    </div>
+    <a class="wii-back-btn" href="{{ `posts/` | relURL }}">‹ Back to channels</a>
+  </article>
+{{ end }}

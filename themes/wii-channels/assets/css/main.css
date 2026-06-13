@@ -1,0 +1,332 @@
+/* ===========================================================
+   Wii Channels — neo-skeuomorphic blue theme
+   =========================================================== */
+
+:root {
+  --wii-bg-top: #d6eefb;
+  --wii-bg-bottom: #a9d8f2;
+  --wii-blue: #00a0e9;
+  --wii-blue-deep: #0078b4;
+  --wii-blue-light: #5ec8f5;
+  --wii-screen-top: #eafaff;
+  --wii-screen-bottom: #bfe6fa;
+  --wii-white: #fdfdfd;
+  --wii-ink: #2a4d63;
+  --wii-ink-soft: #6f93a8;
+  --wii-border: #c5dbe8;
+  --radius: 22px;
+  --shadow-out: 8px 8px 18px rgba(86, 130, 158, 0.45),
+                -8px -8px 18px rgba(255, 255, 255, 0.9);
+  --shadow-in: inset 4px 4px 9px rgba(86, 130, 158, 0.35),
+               inset -4px -4px 9px rgba(255, 255, 255, 0.85);
+  --gloss: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%,
+           rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0) 55%);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: "Quicksand", system-ui, -apple-system, sans-serif;
+  color: var(--wii-ink);
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 60%),
+    linear-gradient(180deg, var(--wii-bg-top) 0%, var(--wii-bg-bottom) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: var(--wii-blue-deep); }
+
+.wii-frame {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px 96px;
+}
+
+/* ---------- Header ---------- */
+.wii-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 18px;
+  margin-bottom: 26px;
+  background: var(--wii-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-out);
+  position: relative;
+}
+.wii-header::before {
+  content: "";
+  position: absolute; inset: 3px 3px auto 3px; height: 45%;
+  border-radius: calc(var(--radius) - 5px) calc(var(--radius) - 5px) 60% 60%;
+  background: var(--gloss);
+  pointer-events: none;
+}
+
+.wii-clock-pod {
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--wii-screen-top), var(--wii-screen-bottom));
+  box-shadow: var(--shadow-in);
+  min-width: 104px;
+}
+.wii-time {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--wii-blue-deep);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.wii-ampm { font-size: 0.7rem; margin-left: 3px; vertical-align: top; }
+.wii-date { font-size: 0.72rem; color: var(--wii-ink-soft); margin-top: 3px; }
+
+.wii-logo { text-align: center; }
+.wii-logo-text {
+  display: block;
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.7rem;
+  color: var(--wii-ink);
+  text-shadow: 0 1px 0 #fff;
+}
+.wii-logo-sub { display: block; font-size: 0.8rem; color: var(--wii-ink-soft); }
+
+.wii-nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.wii-nav-btn {
+  font-family: "Varela Round", sans-serif;
+  font-size: 0.9rem;
+  color: #fff;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--wii-blue-light), var(--wii-blue) 55%, var(--wii-blue-deep));
+  box-shadow: 0 4px 8px rgba(0, 120, 180, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.wii-nav-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.wii-nav-btn:active { transform: translateY(1px); }
+
+/* ---------- Channel grid (home) ---------- */
+.wii-intro {
+  background: var(--wii-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-out);
+  padding: 20px 26px;
+  margin-bottom: 26px;
+  text-align: center;
+}
+.wii-intro h1, .wii-intro h2 { font-family: "Varela Round", sans-serif; margin: 0.2em 0; }
+
+.wii-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.wii-channel {
+  display: flex;
+  flex-direction: column;
+  background: var(--wii-white);
+  border-radius: var(--radius);
+  padding: 12px 12px 10px;
+  box-shadow: var(--shadow-out);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+  position: relative;
+}
+.wii-channel::before {
+  content: "";
+  position: absolute; inset: 4px 4px auto 4px; height: 38%;
+  border-radius: calc(var(--radius) - 6px);
+  background: var(--gloss);
+  pointer-events: none;
+}
+.wii-channel:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 16px 28px rgba(0, 120, 180, 0.4),
+              -8px -8px 18px rgba(255, 255, 255, 0.9),
+              0 0 0 3px var(--wii-blue-light);
+}
+.wii-channel-screen {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--wii-screen-top), var(--wii-screen-bottom));
+  box-shadow: var(--shadow-in);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  text-align: center;
+}
+.wii-channel-icon { font-size: 2.4rem; line-height: 1; filter: drop-shadow(0 2px 1px rgba(0,0,0,0.15)); }
+.wii-channel-title {
+  font-family: "Varela Round", sans-serif;
+  font-size: 0.95rem;
+  color: var(--wii-ink);
+}
+.wii-channel-label {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--wii-ink-soft);
+  margin-top: 8px;
+}
+.wii-channel--empty {
+  box-shadow: var(--shadow-in);
+  background: linear-gradient(180deg, #e4f2fa, #d2e8f5);
+  min-height: 180px;
+  pointer-events: none;
+}
+.wii-channel--empty::before { display: none; }
+
+/* ---------- Panels (list + article) ---------- */
+.wii-panel {
+  background: var(--wii-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-out);
+  padding: 28px 32px;
+  position: relative;
+}
+.wii-panel-title, .wii-article-title {
+  font-family: "Varela Round", sans-serif;
+  margin-top: 0;
+}
+
+.wii-post-list { list-style: none; margin: 0; padding: 0; }
+.wii-post-row { margin: 10px 0; }
+.wii-post-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--wii-screen-top), var(--wii-screen-bottom));
+  box-shadow: var(--shadow-in);
+  color: var(--wii-ink);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.wii-post-link:hover { transform: translateX(4px); filter: brightness(1.03); }
+.wii-post-icon { font-size: 1.5rem; }
+.wii-post-name { font-family: "Varela Round", sans-serif; flex: 1; }
+.wii-post-date { font-size: 0.78rem; color: var(--wii-ink-soft); }
+
+/* ---------- Article ---------- */
+.wii-article-head { text-align: center; margin-bottom: 22px; }
+.wii-article-icon { font-size: 3rem; display: block; margin-bottom: 6px; }
+.wii-article-meta {
+  display: flex; gap: 10px; justify-content: center;
+  color: var(--wii-ink-soft); font-size: 0.85rem; margin-top: 6px;
+}
+.wii-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+.wii-tag {
+  font-size: 0.74rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(180deg, var(--wii-blue-light), var(--wii-blue-deep));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.wii-article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+.wii-article-body h2, .wii-article-body h3 {
+  font-family: "Varela Round", sans-serif;
+  color: var(--wii-blue-deep);
+}
+.wii-article-body a { text-decoration: underline; }
+.wii-article-body img { max-width: 100%; border-radius: 14px; box-shadow: var(--shadow-out); }
+.wii-article-body blockquote {
+  margin: 18px 0; padding: 12px 18px;
+  border-left: 5px solid var(--wii-blue-light);
+  background: var(--wii-screen-top);
+  border-radius: 0 14px 14px 0;
+  color: var(--wii-ink-soft);
+}
+.wii-article-body pre {
+  background: linear-gradient(180deg, #0a2c3e, #06202d);
+  color: #d6f3ff;
+  padding: 16px 18px;
+  border-radius: 14px;
+  overflow-x: auto;
+  box-shadow: var(--shadow-in);
+}
+.wii-article-body code {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.9em;
+}
+.wii-article-body :not(pre) > code {
+  background: var(--wii-screen-bottom);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--wii-blue-deep);
+}
+
+.wii-back-btn {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: "Varela Round", sans-serif;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--wii-blue-light), var(--wii-blue) 55%, var(--wii-blue-deep));
+  box-shadow: 0 4px 8px rgba(0, 120, 180, 0.4), inset 0 1px 0 rgba(255,255,255,0.7);
+}
+.wii-back-btn:hover { filter: brightness(1.08); }
+
+/* ---------- Footer (Wii bottom bar) ---------- */
+.wii-footer {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 22px;
+  background: linear-gradient(180deg, #eef8fd, #cfe8f7);
+  box-shadow: 0 -6px 16px rgba(86, 130, 158, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.wii-disc, .wii-mail {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; color: #fff;
+  background: radial-gradient(circle at 35% 30%, var(--wii-blue-light), var(--wii-blue) 55%, var(--wii-blue-deep));
+  box-shadow: 0 5px 10px rgba(0, 120, 180, 0.5), inset 0 2px 3px rgba(255, 255, 255, 0.7);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.wii-disc:hover, .wii-mail:hover { transform: translateY(-3px); filter: brightness(1.08); }
+.wii-disc { margin-top: -28px; }
+.wii-mail { margin-top: -10px; }
+.wii-footer-bar {
+  flex: 1;
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--wii-screen-top), var(--wii-screen-bottom));
+  box-shadow: var(--shadow-in);
+  color: var(--wii-ink-soft);
+  font-size: 0.8rem;
+}
+.wii-footer-dot { color: var(--wii-blue-light); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .wii-grid { grid-template-columns: repeat(2, 1fr); }
+  .wii-header { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .wii-nav { justify-content: center; }
+}
+@media (max-width: 480px) {
+  .wii-grid { grid-template-columns: 1fr; }
+  .wii-panel { padding: 20px; }
+  .wii-footer-bar { font-size: 0.72rem; }
+}

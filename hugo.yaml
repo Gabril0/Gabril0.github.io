@@ -1,0 +1,30 @@
+baseURL: "https://Gabril0.github.io/"
+locale: "en-us"
+title: "Gabril0's Lab"
+theme: "wii-channels"
+
+params:
+  subtitle: "code experiments & learnings"
+  description: "A static blog where I document my code experiments and things I learn."
+  author: "Gabril0"
+
+menu:
+  main:
+    - name: "Channels"
+      url: "/posts/"
+      weight: 1
+    - name: "About"
+      url: "/about/"
+      weight: 2
+
+markup:
+  highlight:
+    noClasses: true
+    style: "nord"
+    lineNos: false
+  goldmark:
+    renderer:
+      unsafe: true
+
+taxonomies:
+  tag: "tags"

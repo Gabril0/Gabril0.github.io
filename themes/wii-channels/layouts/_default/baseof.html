@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang | default `en` }}">
+{{ partial "head.html" . }}
+<body>
+  <div class="wii-frame">
+    {{ partial "header.html" . }}
+    <main class="wii-main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+  <script src="{{ `js/clock.js` | relURL }}" defer></script>
+</body>
+</html>
