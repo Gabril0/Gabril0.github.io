@@ -1,11 +1,11 @@
 baseURL: "https://Gabril0.github.io/"
 locale: "en-us"
-title: "Gabril0's Lab"
+title: "Gabril0"
 theme: "wii-channels"
 
 params:
-  subtitle: "code experiments & learnings"
-  description: "A static blog where I document my code experiments and things I learn."
+  subtitle: "handcrafted code experiments"
+  description: "nerdy projects handcrafted to learn stuff"
   author: "Gabril0"
 
 menu:

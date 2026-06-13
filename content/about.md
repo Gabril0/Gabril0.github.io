@@ -1,14 +1,11 @@
 ---
 title: "About"
-icon: "👤"
+icon: "◝(ᵔᗜᵔ)◜"
 ---
 
-## Hi, I'm Gabril0
+## Sup blud 
 
-This is my static blog built with [Hugo](https://gohugo.io/) and a custom
-neo-skeuomorphic theme inspired by the **Nintendo Wii** menu and channels.
-
-I use this space to log my **code experiments**, document what I learn, and
-keep notes I can come back to later.
-
-Every post is a "channel" on the home screen — click one to open it.
+Hi, I'm an software engineer really bored about current state of AI slop code, bullshit business talk, 100 billion bullshit buzzwords, just interested in learning
+how do computers work and making code do fun stuff, mostly with graphic computing, which is the thing I find more interesting, even if it is not a job landing skill for the current
+industry, again, it is a blog where i share learning process of HANDCRAFTED code and my learning process throughout it I hope you're welcome and please be inspired to learn and not only
+ask for the dumb parrot like probability tool to build your stuff for you while you get dumber every day

@@ -1,8 +1,7 @@
 ---
-title: "Welcome to the Lab"
+title: "Handcrafted studies and some thoughts on tech world"
 ---
 
-# Gabril0's Lab
+# Crepaldi
 
-A little corner of the web where I document my **code experiments** and the
-things I learn along the way. Pick a channel below to start reading.
+An space for me to talk about what I'm learning and share some of my experience and discoveries while trying to build fun and performant handcrafted code
