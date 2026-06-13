@@ -2,6 +2,9 @@
 <html lang="{{ site.Language.Lang | default `en` }}">
 {{ partial "head.html" . }}
 <body>
+  <div class="wii-bubbles" aria-hidden="true">
+    {{ range (seq 12) }}<span class="wii-bubble"></span>{{ end }}
+  </div>
   <div class="wii-frame">
     {{ partial "header.html" . }}
     <main class="wii-main">
