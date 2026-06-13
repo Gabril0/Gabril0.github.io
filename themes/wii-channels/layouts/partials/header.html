@@ -1,4 +1,7 @@
 <header class="wii-header">
+  <a class="wii-avatar" href="{{ `` | relURL }}" aria-label="{{ site.Params.author | default site.Title }}">
+    <img src="https://github.com/{{ site.Title }}.png" alt="{{ site.Params.author | default site.Title }}" loading="lazy" width="110" height="110">
+  </a>
   <div class="wii-clock-pod">
     <div class="wii-time" id="wii-time">--:--</div>
     <div class="wii-date" id="wii-date">{{ now.Format "Mon, Jan 2" }}</div>

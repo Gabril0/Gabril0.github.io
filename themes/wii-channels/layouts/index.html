@@ -6,10 +6,17 @@
     {{ $posts := where site.RegularPages "Section" "posts" }}
     {{ range $posts }}
       <a class="wii-channel" href="{{ .RelPermalink }}">
+        {{ if .Params.image }}
+        <div class="wii-channel-screen wii-channel-screen--img">
+          <img class="wii-channel-img" src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy">
+          <span class="wii-channel-title">{{ .Title }}</span>
+        </div>
+        {{ else }}
         <div class="wii-channel-screen">
           {{ with .Params.icon }}<span class="wii-channel-icon">{{ . }}</span>{{ else }}<span class="wii-channel-icon">★</span>{{ end }}
           <span class="wii-channel-title">{{ .Title }}</span>
         </div>
+        {{ end }}
         <div class="wii-channel-label">{{ .Date.Format "Jan 2, 2006" }}</div>
       </a>
     {{ end }}
