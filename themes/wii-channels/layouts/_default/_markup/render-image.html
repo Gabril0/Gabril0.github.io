@@ -1,0 +1,3 @@
+<span class="wii-article-img">
+  <img src="{{ if hasPrefix .Destination "http" }}{{ .Destination }}{{ else }}{{ .Destination | relURL }}{{ end }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy">
+</span>

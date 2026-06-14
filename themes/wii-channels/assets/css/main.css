@@ -230,19 +230,33 @@ a { text-decoration: none; color: var(--wii-blue-deep); }
   object-fit: cover;
   border-radius: 14px;
 }
+.wii-channel-screen--img::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 65%;
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.28) 55%,
+    rgba(0, 0, 0, 0.7) 100%);
+  border-radius: 0 0 14px 14px;
+  pointer-events: none;
+  z-index: 1;
+}
 .wii-channel-screen--img .wii-channel-title {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
-  padding: 18px 8px 8px;
+  padding: 18px 8px 10px;
   color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85),
+               0 0 2px rgba(0, 0, 0, 0.6);
   border-radius: 0 0 14px 14px;
 }
 .wii-channel-title {
   font-family: "Varela Round", sans-serif;
   font-size: 0.95rem;
+  font-weight: 700;
   color: var(--wii-ink);
 }
 .wii-channel-label {
@@ -291,6 +305,58 @@ a { text-decoration: none; color: var(--wii-blue-deep); }
 .wii-post-date { font-size: 0.78rem; color: var(--wii-ink-soft); }
 
 /* ---------- Article ---------- */
+.wii-article-hero {
+  position: relative;
+  margin: 0 0 24px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.wii-article-hero img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  scale: 1.08;
+  animation: heroFloat 11s linear infinite;
+}
+@keyframes heroFloat {
+  0%   { translate: -1.4% 0; }
+  50%  { translate: 1.4% 0; }
+  100% { translate: -1.4% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wii-article-hero img { animation: none; scale: 1.04; }
+}
+.wii-article-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  border-radius: 16px 16px 50% 50% / 16px 16px 26% 26%;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.12) 24%,
+    rgba(255, 255, 255, 0) 70%);
+  z-index: 2;
+  pointer-events: none;
+}
+.wii-article-hero::after,
+.wii-article-body .wii-article-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: var(--shadow-in);
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(42, 77, 99, 0.08) 70%,
+    rgba(42, 77, 99, 0.22) 100%);
+  pointer-events: none;
+}
 .wii-article-head { text-align: center; margin-bottom: 22px; }
 .wii-article-icon { font-size: 3rem; display: block; margin-bottom: 6px; }
 .wii-article-meta {
@@ -317,7 +383,20 @@ a { text-decoration: none; color: var(--wii-blue-deep); }
   color: var(--wii-blue-deep);
 }
 .wii-article-body a { text-decoration: underline; }
-.wii-article-body img { max-width: 100%; border-radius: 14px; box-shadow: var(--shadow-out); }
+.wii-article-body .wii-article-img {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  border-radius: 16px;
+  line-height: 0;
+  margin: 6px 0;
+}
+.wii-article-body .wii-article-img img {
+  display: block;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: none;
+}
 .wii-article-body blockquote {
   margin: 18px 0; padding: 12px 18px;
   border-left: 5px solid var(--wii-blue-light);
@@ -403,6 +482,7 @@ a { text-decoration: none; color: var(--wii-blue-deep); }
 @media (max-width: 480px) {
   .wii-grid { grid-template-columns: 1fr; }
   .wii-panel { padding: 20px; }
+  .wii-article-hero img { height: 200px; }
   .wii-footer-bar { font-size: 0.72rem; }
 }
 
@@ -439,4 +519,52 @@ a { text-decoration: none; color: var(--wii-blue-deep); }
 }
 @media (prefers-reduced-motion: reduce) {
   .wii-bubble { display: none; }
+}
+
+/* ---------- Mermaid diagrams ---------- */
+.wii-article-body pre.mermaid {
+  background: linear-gradient(180deg, var(--wii-screen-top), var(--wii-screen-bottom));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-in);
+  padding: 22px;
+  margin: 22px 0;
+  text-align: center;
+  overflow-x: auto;
+}
+.wii-article-body pre.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+.wii-article-body pre.mermaid svg,
+.wii-article-body pre.mermaid svg * {
+  font-family: "Varela Round", "Quicksand", sans-serif !important;
+}
+.wii-article-body pre.mermaid .nodeLabel,
+.wii-article-body pre.mermaid .edgeLabel,
+.wii-article-body pre.mermaid .cluster-label,
+.wii-article-body pre.mermaid text {
+  fill: var(--wii-ink) !important;
+  color: var(--wii-ink) !important;
+}
+.wii-article-body pre.mermaid .edgePath .path,
+.wii-article-body pre.mermaid .flowchart-link {
+  stroke: var(--wii-blue-deep);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+}
+.wii-article-body pre.mermaid .arrowheadPath,
+.wii-article-body pre.mermaid marker path {
+  fill: var(--wii-blue-deep);
+  stroke: var(--wii-blue-deep);
+}
+.wii-article-body pre.mermaid .edgeLabel rect,
+.wii-article-body pre.mermaid .edgeLabel foreignObject > div {
+  background: var(--wii-white) !important;
+  border-radius: 8px;
+}
+.wii-article-body pre.mermaid .cluster rect {
+  rx: 18px;
+  ry: 18px;
+  stroke-width: 2px;
+  filter: drop-shadow(4px 4px 8px rgba(86, 130, 158, 0.35));
 }

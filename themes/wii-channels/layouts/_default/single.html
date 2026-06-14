@@ -1,7 +1,12 @@
 {{ define "main" }}
   <article class="wii-panel wii-article">
+    {{ with .Params.image }}
+    <div class="wii-article-hero">
+      <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+    </div>
+    {{ end }}
     <header class="wii-article-head">
-      <span class="wii-article-icon">{{ with .Params.icon }}{{ . }}{{ else }}★{{ end }}</span>
+      {{ if not .Params.image }}<span class="wii-article-icon">{{ with .Params.icon }}{{ . }}{{ else }}★{{ end }}</span>{{ end }}
       <h1 class="wii-article-title">{{ .Title }}</h1>
       <div class="wii-article-meta">
         <span>{{ .Date.Format "January 2, 2006" }}</span>
