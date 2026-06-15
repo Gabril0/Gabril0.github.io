@@ -568,3 +568,50 @@ a { text-decoration: none; color: var(--wii-blue-deep); }
   stroke-width: 2px;
   filter: drop-shadow(4px 4px 8px rgba(86, 130, 158, 0.35));
 }
+
+/* ===========================================================
+   Stylized scrollbar — neo-skeuomorphic soft rail
+   =========================================================== */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #bcdcf0 rgba(198, 226, 245, 0.55);
+}
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #c4e0f4, #aed4ee);
+  border-radius: 12px;
+  box-shadow: inset 3px 3px 7px rgba(86, 130, 158, 0.55),
+              inset -3px -3px 7px rgba(255, 255, 255, 0.85);
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 12px;
+  background-color: #d4e6f1;
+  background-image: linear-gradient(145deg, #ffffff, #cfe2f0);
+  box-shadow:
+    3px 3px 7px rgba(86, 130, 158, 0.5),
+    -3px -3px 7px rgba(255, 255, 255, 0.95),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(0, 120, 180, 0.18);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(145deg, #ffffff, #c4ddef);
+  box-shadow:
+    4px 4px 9px rgba(86, 130, 158, 0.55),
+    -4px -4px 9px rgba(255, 255, 255, 1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(0, 120, 180, 0.22);
+}
+::-webkit-scrollbar-thumb:active {
+  background-image: linear-gradient(145deg, #cfe2f0, #ffffff);
+  box-shadow:
+    inset 3px 3px 6px rgba(86, 130, 158, 0.5),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.9);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

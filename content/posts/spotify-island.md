@@ -41,7 +41,7 @@ So, I'll divide it now into repos and sections to explain what each will do:
 This will be a simple API made in Go, with:
 - Fiber for API handling.
 - Huma for visual API docs.
-It should be kept simple, with the following functions:
+It should be kept simple
 - Spotify Auth handling, with login in the browser to keep it easy.
 - Endpoint to get the data from the top artists/songs from the person (already made by Spotify API).
 - Endpoint to get user data, like name and picture.
